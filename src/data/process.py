@@ -39,7 +39,7 @@ def run_preprocessing(
         file_name = os.path.join(AUDIO_PATH, 'fold' + str(row["fold"]), str(row["slice_file_name"]))
         class_label = row["classID"]
 
-        data = extract_features(file_name, n_mfcc==n_mfcc, max_len=max_len)
+        data = extract_features(file_name, n_mfcc=n_mfcc, max_len=max_len)
 
         if data is not None:
             features.append(data)
