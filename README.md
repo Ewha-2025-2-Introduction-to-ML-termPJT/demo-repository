@@ -79,7 +79,7 @@ python3 -m src.scripts.train_adapter
 
 # 4. Compare the results 📈
 ```
-python3 -m src/scripts/compare.py
+python3 -m src.scripts.compare
 ```
 
 # 5. References 📕
