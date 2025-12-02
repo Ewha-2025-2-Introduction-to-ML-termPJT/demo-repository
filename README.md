@@ -3,9 +3,7 @@ From [UrbanSound8K Dataset](https://www.kaggle.com/code/amenmohamed/environmenta
 
 
 아래는 `"Class: air_conditioner (ID: 0)"` 에 대한 예시
-'''
-그림 + mel spectorgram 예시.
-'''
+
 
 ### 📊 Class Distribution (UrbanSound8K Subset)
 
@@ -40,9 +38,9 @@ From [UrbanSound8K Dataset](https://www.kaggle.com/code/amenmohamed/environmenta
 
 For venv users
 ```
-python3.10 -m venv .venv # 가상 환경 생성
-source .venv/bin/activate # 가상 환경 활성화
-pip3 install -r requirements.txt # 필요한 패키지 설치
+python3.10 -m venv .venv 
+source .venv/bin/activate 
+pip3 install -r requirements.txt 
 ```
 
 For conda users 
@@ -65,7 +63,7 @@ pip3 install -r requirements.txt
 python src.data.process
 ```
 
-# 3. Training Scratch/Full fine-tuned model/LoRA/Adapter 🔥
+# 3. Training Scratch/Full fine-tuned model/LoRA/Adapter🔥
 ```
 #train for scratch
 python3 src/scripts/train_scratch.py
