@@ -31,7 +31,7 @@ def main():
 
 
     # 2) LoRA 모델 생성
-    lora_model = LoRACNN(num_classes=10, r=8, lora_alpha=16, lora_dropout=0.3).to(device)
+    lora_model = LoRACNN(num_classes=10, r=8, lora_alpha=16, lora_dropout=0.4).to(device)
 
     # 3) baseline weight 복사
     lora_model.conv1.load_state_dict(
