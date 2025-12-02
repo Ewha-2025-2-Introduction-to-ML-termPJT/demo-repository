@@ -59,7 +59,7 @@ pip3 install -r requirements.txt
 
 # 2. Download and preprocess the dataset 📀
 ```
-python src.data.process
+python src/data/process.py
 ```
 
 # 3. Training 🔥
@@ -79,7 +79,7 @@ python3 src/scripts/train_adapter.py
 
 # 4. Compare the results 📈
 ```
-python3 src.scripts.compare
+python3 src/scripts/compare.py
 ```
 
 # 5. References 
