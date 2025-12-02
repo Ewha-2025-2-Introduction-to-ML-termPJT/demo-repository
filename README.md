@@ -3,7 +3,7 @@ From [UrbanSound8K Dataset](https://www.kaggle.com/code/amenmohamed/environmenta
 
 
 아래는 `"Class: air_conditioner (ID: 0)"` 에 대한 예시
-
+<img width="1175" height="290" alt="Image" src="https://github.com/user-attachments/assets/e1822da8-058d-45b9-a0ea-69b89359f61a" />
 
 ### 📊 Class Distribution (UrbanSound8K Subset)
 
