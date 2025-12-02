@@ -59,22 +59,22 @@ pip3 install -r requirements.txt
 
 # 2. Download and preprocess the dataset 📀
 ```
-python -m src/data/process.py
+python -m src.data.process
 ```
 
 # 3. Training 🔥
 ```
 #train for scratch
-python3 -m src/scripts/train_scratch.py
+python3 -m src.scripts.train_scratch
 
 #train for full fine-tuned model
-python3 -m src/scripts/train_finetune.py
+python3 -m src/scripts/train_finetune
 
 #train for LoRA
-python3 -m src/scripts/train_lora.py
+python3 -m src.scripts.train_lora
 
 #train for Adapter
-python3 -m src/scripts/train_adapter.py
+python3 -m src.scripts.train_adapter
 ```
 
 # 4. Compare the results 📈
