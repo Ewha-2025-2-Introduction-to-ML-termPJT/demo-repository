@@ -68,7 +68,7 @@ python -m src.data.process
 python3 -m src.scripts.train_scratch
 
 #train for full fine-tuned model
-python3 -m src/scripts/train_finetune
+python3 -m src.scripts.train_finetune
 
 #train for LoRA
 python3 -m src.scripts.train_lora
