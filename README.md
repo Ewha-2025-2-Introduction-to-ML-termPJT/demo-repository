@@ -78,12 +78,10 @@ python3 src/scripts/train_lora.py
 python3 src/scripts/train_adapter.py
 ```
 
-# 4. Compare the results
+# 4. Compare the results 📈
 ```
 python3 src.scripts.compare
 ```
 
-# 5. References
-
-[networkx](https://medium.com/@harshkjoya/connecting-the-dots-creating-network-graphs-from-pandas-dataframes-with-networkx-9c4fb60089cf), [Spotify RS](https://medium.com/stanford-cs224w/spotify-track-neural-recommender-system-51d266e31e16)
-
+# 5. References 
+[CNN](https://arxiv.org/pdf/1312.4400v3), [LoRA](https://arxiv.org/pdf/2106.09685), [Adapter](https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Chen_Conv-Adapter_Exploring_Parameter_Efficient_Transfer_Learning_for_ConvNets_CVPRW_2024_paper.pdf)
