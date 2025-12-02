@@ -82,5 +82,5 @@ python3 src/scripts/train_adapter.py
 python3 src/scripts/compare.py
 ```
 
-# 5. References 
+# 5. References 📕
 [CNN](https://arxiv.org/pdf/1312.4400v3), [LoRA](https://arxiv.org/pdf/2106.09685), [Adapter](https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Chen_Conv-Adapter_Exploring_Parameter_Efficient_Transfer_Learning_for_ConvNets_CVPRW_2024_paper.pdf)
