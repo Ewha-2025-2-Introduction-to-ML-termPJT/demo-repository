@@ -21,7 +21,7 @@ From [UrbanSound8K Dataset](https://www.kaggle.com/code/amenmohamed/environmenta
 | gun_shot           | 374   |
 
 
-### 📄 Dataset Metadata (df.head())
+### 📄 Dataset Metadata 
 
 | slice_file_name      | fsID   | start | end       | salience | fold | classID | class             |
 |----------------------|--------|-------|-----------|----------|------|---------|-------------------|
@@ -63,7 +63,7 @@ pip3 install -r requirements.txt
 python src.data.process
 ```
 
-# 3. Training Scratch/Full fine-tuned model/LoRA/Adapter🔥
+# 3. Training 🔥
 ```
 #train for scratch
 python3 src/scripts/train_scratch.py
