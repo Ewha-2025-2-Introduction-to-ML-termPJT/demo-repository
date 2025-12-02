@@ -1,3 +1,4 @@
+import os
 import torch
 
 def train_model(
@@ -79,6 +80,7 @@ def train_model(
         # best val_loss 기준으로 체크포인트 저장
         if val_loss < best_val_loss:
             best_val_loss = val_loss
+            os.makedirs(os.path.dirname(ckpt_path), exist_ok=True)
             torch.save(model.state_dict(), ckpt_path)
             print(f"  → Best {model_name} saved!")
 
