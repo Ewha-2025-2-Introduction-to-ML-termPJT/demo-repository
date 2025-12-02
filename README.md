@@ -32,7 +32,6 @@ From [UrbanSound8K Dataset](https://www.kaggle.com/code/amenmohamed/environmenta
 | 100263-2-0-137.wav   | 100263 | 68.5  | 72.500000 | 1        | 5    | 2       | children_playing  |
 
 
----
 
 # 1. Environment Setup ⚙️
 
