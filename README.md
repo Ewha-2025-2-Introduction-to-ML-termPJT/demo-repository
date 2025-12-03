@@ -78,9 +78,19 @@ python3 -m src.scripts.train_adapter
 ```
 
 # 4. Compare the results 📈
+## 4-1. Run on local / terminal
 ```
 python3 -m src.scripts.compare
 ```
 
+## 4-2. Run on Google Colab
+```python
+%cd /content/demo-repository
+import sys
+sys.path.append("/content/demo-repository")
+
+from src.scripts.compare import main as compare_main
+compare_main()
+``
 # 5. References 📕
 [CNN](https://arxiv.org/pdf/1312.4400v3), [LoRA](https://arxiv.org/pdf/2106.09685), [Adapter](https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Chen_Conv-Adapter_Exploring_Parameter_Efficient_Transfer_Learning_for_ConvNets_CVPRW_2024_paper.pdf)
