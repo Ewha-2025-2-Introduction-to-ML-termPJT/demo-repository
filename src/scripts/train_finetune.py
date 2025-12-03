@@ -57,7 +57,7 @@ def main():
         model_name="FFT"
     )
     
-    test_result_path = os.path.join(RESULT_DIR, "test_.json")
+    test_result_path = os.path.join(RESULT_DIR, "test_fft.json")
     with open(test_result_path, "w") as f:
         json.dump(
             {
