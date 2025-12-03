@@ -1,15 +1,21 @@
-def plot_training_curves_smoothed(history_base, history_fft, history_lora):
+import matplotlib.pyplot as plt
+from src.utils.smooth_curves import smooth_curve
+
+
+def plot_training_curves_smoothed(history_base, history_fft, history_lora, history_adapter):
     epochs_base = range(1, len(history_base["train_loss"]) + 1)
     epochs_fft  = range(1, len(history_fft["train_loss"]) + 1)
+    epochs_lora  = range(1, len(history_lora["train_loss"]) + 1)
     epochs_adapter = range(1, len(history_adapter["train_loss"]) + 1)
 
     plt.figure(figsize=(14, 6))
 
     # 스타일 설정 (모델별 색상 지정)
-    # Scratch: Blue, FFT: Red, LoRA: Green
+    # Scratch: Blue, FFT: Red, Adapter: purple, LoRA: Green
     styles = [
         ("Scratch", history_base, epochs_base, "tab:blue"),
         ("FFT",     history_fft,  epochs_fft,  "tab:red"),
+        ("LoRA",     history_lora,  epochs_lora,  "tab:purple"),
         ("Adapter",    history_lora, epochs_adapter, "tab:green"),
     ]
 

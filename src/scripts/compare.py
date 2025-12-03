@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from src.models.scratch import BaselineCNN
+from src.models.lora import LoRACNN
 from src.models.adapter import AdapterCNN
 
 from src.utils.plot_training_curves import plot_training_curves
@@ -36,41 +37,47 @@ def count_trainable_params_torch(model):
 def main():
     history_base = load_history("scratch")
     history_fft = load_history("fft")
+    history_lora = load_history("lora")
     history_adapter = load_history("adapter")
     
     # Visualization for training curves
-    plot_training_curves(history_base, history_fft, history_adapter)
+    plot_training_curves(history_base, history_fft, history_lora, history_adapter)
     
     # Visualization for smoothed training curves
-    plot_training_curves_smoothed(history_base, history_fft, history_adapter)
+    plot_training_curves_smoothed(history_base, history_fft, history_lora,history_adapter)
     
     
     baseline_model = BaselineCNN(num_classes=10)
-    fft_model      = BaselineCNN(num_classes=10)        
+    fft_model      = BaselineCNN(num_classes=10)
+    lora_model     = LoRACNN(num_classes=10)  
     adapter_model  = AdapterCNN(num_classes=10)
 
     base_params    = count_trainable_params_torch(baseline_model)
     fft_params     = count_trainable_params_torch(fft_model)
+    lora_params     = count_trainable_params_torch(lora_model)
     adapter_params = count_trainable_params_torch(adapter_model)
 
     # 2) 테스트 결과 로드 (train_scratch.py 등에서 json으로 저장해놨다고 가정)
     base_test = load_test("scratch")
     fft_test  = load_test("fft")
+    lora_test = load_test("lora")
     ad_test   = load_test("adapter")
 
     base_test_acc  = base_test["test_acc"]
     base_test_loss = base_test["test_loss"]
     fft_test_acc   = fft_test["test_acc"]
     fft_test_loss  = fft_test["test_loss"]
+    lora_test_acc   = lora_test["test_acc"]
+    lora_test_loss  = lora_test["test_loss"]    
     adapter_test_acc  = ad_test["test_acc"]
     adapter_test_loss = ad_test["test_loss"]
 
     # 3) DataFrame 생성
     df = pd.DataFrame({
         "Model": ["Baseline (Scratch)", "Full Fine-Tuning", "Adapter CNN"],
-        "Trainable Params": [base_params, fft_params, adapter_params],
-        "Test Accuracy": [base_test_acc, fft_test_acc, adapter_test_acc],
-        "Test Loss": [base_test_loss, fft_test_loss, adapter_test_loss],
+        "Trainable Params": [base_params, fft_params, lora_params, adapter_params],
+        "Test Accuracy": [base_test_acc, fft_test_acc, lora_test_acc,adapter_test_acc],
+        "Test Loss": [base_test_loss, fft_test_loss, lora_test_loss,adapter_test_loss],
     })
 
     df = df.round({"Test Accuracy": 4, "Test Loss": 4})
