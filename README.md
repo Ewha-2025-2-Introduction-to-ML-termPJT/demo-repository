@@ -91,6 +91,7 @@ sys.path.append("/content/demo-repository")
 
 from src.scripts.compare import main as compare_main
 compare_main()
-``
+```
+
 # 5. References 📕
 [CNN](https://arxiv.org/pdf/1312.4400v3), [LoRA](https://arxiv.org/pdf/2106.09685), [Adapter](https://openaccess.thecvf.com/content/CVPR2024W/PV/papers/Chen_Conv-Adapter_Exploring_Parameter_Efficient_Transfer_Learning_for_ConvNets_CVPRW_2024_paper.pdf)
