@@ -26,8 +26,9 @@ def load_history(name: str):
     return history
 
 def load_test(name: str):
-    path = os.path.join(RESULT_DIR, "test_{name}.json")
-
+    path = RESULT_DIR / f"test_{name}.json"
+    print("[DEBUG][test] looking for:", path)
+    
     if not path.exists():
         raise FileNotFoundError(f"Test file not found: {path}")
     with path.open("r") as f:
