@@ -3,6 +3,8 @@ import json
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from pathlib import Path
+
 
 from src.models.scratch import BaselineCNN
 from src.models.lora import LoRACNN
@@ -10,7 +12,9 @@ from src.models.adapter import AdapterCNN
 
 from src.utils.plot_training_curves import plot_training_curves
 from src.utils.plot_training_curves_smoothed import plot_training_curves_smoothed
-RESULT_DIR="results"
+
+ROOT_DIR = Path(__file__).resolve().parents[2]   # demo-repository/
+RESULT_DIR = ROOT_DIR / "results"
 
 def load_history(name: str):
     path=os.path.join(RESULT_DIR, f"history_{name}.json")
@@ -24,10 +28,10 @@ def load_history(name: str):
 def load_test(name: str):
     path = os.path.join(RESULT_DIR, "test_{name}.json")
 
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"Test file not found: {name}")
-    with open(path, "r") as f:
-        test=json.load(f)
+    if not path.exists():
+        raise FileNotFoundError(f"Test file not found: {path}")
+    with path.open("r") as f:
+          test = json.load(f)
     return test
 
 def count_trainable_params_torch(model):
@@ -42,10 +46,10 @@ def main():
     
     # Visualization for training curves
     plot_training_curves(history_base, history_fft, history_lora, history_adapter)
-    
+    plt.show()
     # Visualization for smoothed training curves
     plot_training_curves_smoothed(history_base, history_fft, history_lora,history_adapter)
-    
+    plt.show()
     
     baseline_model = BaselineCNN(num_classes=10)
     fft_model      = BaselineCNN(num_classes=10)
@@ -72,12 +76,32 @@ def main():
     adapter_test_acc  = ad_test["test_acc"]
     adapter_test_loss = ad_test["test_loss"]
 
-    # 3) DataFrame 생성
+    # 3) DataFrame 생성   
     df = pd.DataFrame({
-        "Model": ["Baseline (Scratch)", "Full Fine-Tuning", "Adapter CNN"],
-        "Trainable Params": [base_params, fft_params, lora_params, adapter_params],
-        "Test Accuracy": [base_test_acc, fft_test_acc, lora_test_acc,adapter_test_acc],
-        "Test Loss": [base_test_loss, fft_test_loss, lora_test_loss,adapter_test_loss],
+        "Model": [
+            "Baseline (Scratch)",
+            "Full Fine-Tuning",
+            "LoRA CNN",
+            "Adapter CNN",
+        ],
+        "Trainable Params": [
+            base_params,
+            fft_params,
+            lora_params,
+            adapter_params,
+        ],
+        "Test Accuracy": [
+            base_test_acc,
+            fft_test_acc,
+            lora_test_acc,
+            adapter_test_acc,
+        ],
+        "Test Loss": [
+            base_test_loss,
+            fft_test_loss,
+            lora_test_loss,
+            adapter_test_loss,
+        ]
     })
 
     df = df.round({"Test Accuracy": 4, "Test Loss": 4})
